@@ -1,0 +1,246 @@
+<!-- path: /anuncio-setup/index.html -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Setup & Projetos — Divulgue seu trabalho</title>
+  <meta name="description" content="Anuncie seu setup de programação e mostre seus projetos. Modelo HTML responsivo com galeria de projetos, CTA, e contato.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7c3aed; --glass: rgba(255,255,255,0.04);
+      --radius:12px; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#071028 70%);color:#e6eef8;line-height:1.4}
+    .container{max-width:1100px;margin:32px auto;padding:24px}
+
+    header{display:flex;gap:16px;align-items:center}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#2563eb);display:flex;align-items:center;justify-content:center;font-weight:700}
+    h1{font-size:clamp(20px,3vw,28px);margin:0}
+    p.lead{color:var(--muted);margin:6px 0 0}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:22px;align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6);}
+
+    .profile{display:flex;gap:16px;align-items:center}
+    .avatar{width:84px;height:84px;border-radius:12px;background:linear-gradient(180deg,#1f2937,#0b1220);display:flex;align-items:center;justify-content:center;font-size:28px}
+    .meta h2{margin:0 0 6px 0}
+    .meta p{margin:0;color:var(--muted)}
+
+    .setup-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:13px}
+
+    .cta{display:flex;gap:12px;margin-top:16px}
+    .btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* Projects */
+    .projects{margin-top:26px}
+    .projects h3{margin:0 0 12px 0}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .filters button{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .proj{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px;cursor:pointer}
+    .proj img{width:100%;height:130px;object-fit:cover;border-radius:8px}
+    .proj h4{margin:10px 0 6px 0;font-size:16px}
+    .proj p{margin:0;color:var(--muted);font-size:13px}
+
+    footer{margin:32px 0 100px 0;color:var(--muted);text-align:center}
+
+    /* responsive */
+    @media(max-width:880px){ .hero{grid-template-columns:1fr} .hero .card:last-child{order:-1} }
+
+    /* simple modal */
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(2,6,23,0.6);visibility:hidden;opacity:0;transition:all .18s}
+    .modal.open{visibility:visible;opacity:1}
+    .modal .inner{max-width:760px;width:100%;background:#071127;padding:18px;border-radius:12px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+
+    /* small helpers */
+    .row{display:flex;gap:10px;align-items:center}
+    input[type=search]{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">EUDALA</div>
+        <div>
+          <h1>Meu Setup — Portfólio & Projetos</h1>
+          <p class="lead">Anuncie seu setup de programação e mostre os projetos em destaque — compartilhe e consiga clientes ou colaborações.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <div class="profile">
+          <div class="avatar">ED</div>
+          <div class="meta">
+            <h2>Setup de Promação EuDala</h2>
+            <p class="muted">Full-stack developer • 5 anos de experiência • Porto, PT</p>
+            <div class="setup-list">
+              <span class="chip">VS Code</span>
+              <span class="chip">i7 • 32GB RAM</span>
+              <span class="chip">Ubuntu 24.04</span>
+              <span class="chip">Dell Ultrawide 34"</span>
+            </div>
+            <div class="cta">
+              <button class="btn" onclick="copySetup()">Copiar Setup</button>
+              <a class="btn ghost" href="mailto:mateus@example.com?subject=Trabalho%20&body=Vi%20seu%20setup%20e%20quero%20falar">Contratar</a>
+            </div>
+          </div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:16px 0">
+        <div>
+          <strong>Destaques:</strong>
+          <ul class="muted" style="margin:8px 0 0;padding-left:18px">
+            <li>Componentes React open-source</li>
+            <li>CLI para deploy rápido</li>
+            <li>Templates de UI acessíveis</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Divulgue seus Projetos</h3>
+        <p class="muted">Use esta página para apresentar seus trabalhos, com imagens, descrições curtas e links para repositórios ou demos.</p>
+
+        <div style="margin-top:12px">
+          <label class="muted">Busca rápida</label>
+          <div class="row" style="margin-top:8px">
+            <input id="search" type="search" placeholder="Procurar projeto..." oninput="filterProjects()">
+            <button class="btn ghost" onclick="clearSearch()">Limpar</button>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <small class="muted">Compartilhar:</small>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="btn" onclick="share('twitter')">Twitter</button>
+            <button class="btn" onclick="share('linkedin')">LinkedIn</button>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <section class="projects">
+      <h3>Projetos em destaque</h3>
+      <div class="filters">
+        <button onclick="setFilter('all')">Todos</button>
+        <button onclick="setFilter('web')">Web</button>
+        <button onclick="setFilter('cli')">CLI</button>
+        <button onclick="setFilter('lib')">Biblioteca</button>
+      </div>
+
+      <div class="grid" id="projectsGrid">
+        <!-- Exemplos de projetos: altere conforme necessário -->
+        <article class="proj" data-tags="web,react" onclick="openModal(0)">
+          <img src="https://images.unsplash.com/photo-1523475496153-3d6ccf1d4b64?q=80&w=800&auto=format&fit=crop" alt="Projeto 1">
+          <h4>UI Kit React</h4>
+          <p class="muted">Biblioteca de componentes acessíveis e prontos para produção.</p>
+        </article>
+
+        <article class="proj" data-tags="web,tailwind" onclick="openModal(1)">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop" alt="Projeto 2">
+          <h4>Site Pessoal</h4>
+          <p class="muted">Template minimal para portfólios e blogs com SEO otimizado.</p>
+        </article>
+
+        <article class="proj" data-tags="cli,tooling" onclick="openModal(2)">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop" alt="Projeto 3">
+          <h4>Deploy CLI</h4>
+          <p class="muted">Ferramenta CLI para deploys rápidos em servidores VPS.</p>
+        </article>
+
+        <article class="proj" data-tags="lib,web" onclick="openModal(3)">
+          <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop" alt="Projeto 4">
+          <h4>Validator.js</h4>
+          <p class="muted">Pequena biblioteca de validações para formulários e APIs.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p>Feito com ♥ — personalize este template e compartilhe seu setup.</p>
+    </footer>
+  </div>
+
+  <!-- Modal detalhado do projeto -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="inner card" role="dialog" aria-modal="true">
+      <button onclick="closeModal()" class="btn ghost" style="float:right">Fechar</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // dados exemplo; substitua por fetch/JSON real se desejar
+    const projects = [
+      {title:'UI Kit React',desc:'Componentes React prontos, Documentação e exemplos de uso.',img:1,tags:['web','react'],repo:'#'},
+      {title:'Site Pessoal',desc:'Template leve com SEO e performance otimizados.',img:2,tags:['web','tailwind'],repo:'#'},
+      {title:'Deploy CLI',desc:'CLI para automatizar deploys em servidores Linux.',img:3,tags:['cli','tooling'],repo:'#'},
+      {title:'Validator.js',desc:'Validações pequenas e performáticas para forms.',img:4,tags:['lib','web'],repo:'#'}
+    ];
+
+    function openModal(i){
+      const p = projects[i];
+      const html = `
+        <h2>${p.title}</h2>
+        <p class="muted">${p.tags.join(' • ')}</p>
+        <div style=\"margin-top:12px\"> <img src=\"https://images.unsplash.com/photo-1523475496153-3d6ccf1d4b64?q=80&w=1200&auto=format&fit=crop\" alt=\"${p.title}\" style=\"width:100%;height:280px;object-fit:cover;border-radius:8px\"></div>
+        <p style=\"margin-top:12px\">${p.desc}</p>
+        <div class=\"tags\">${p.tags.map(t=>`<span class=\"chip\">${t}</span>`).join('')}</div>
+        <div style=\"margin-top:12px;display:flex;gap:8px\"> <a class=\"btn\" href=\"${p.repo}\">Ver repositório</a> <button class=\"btn ghost\" onclick=\"copyLink('${p.repo}')\">Copiar link</button></div>
+      `;
+      document.getElementById('modalContent').innerHTML = html;
+      const modal = document.getElementById('modal'); modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){const m=document.getElementById('modal');m.classList.remove('open');m.setAttribute('aria-hidden','true')}
+
+    function setFilter(tag){
+      const nodes = document.querySelectorAll('#projectsGrid .proj');
+      nodes.forEach(n=>{
+        const tags = n.getAttribute('data-tags').split(',');
+        if(tag==='all' || tags.includes(tag)) n.style.display='block'; else n.style.display='none';
+      })
+    }
+
+    function filterProjects(){
+      const q = document.getElementById('search').value.toLowerCase();
+      document.querySelectorAll('#projectsGrid .proj').forEach(n=>{
+        const title = n.querySelector('h4').textContent.toLowerCase();
+        const desc = n.querySelector('p').textContent.toLowerCase();
+        n.style.display = (title.includes(q) || desc.includes(q)) ? 'block' : 'none';
+      })
+    }
+    function clearSearch(){document.getElementById('search').value='';filterProjects();}
+
+    function copySetup(){
+      const text = `Mateus Gouveia - Setup: VS Code, i7, 32GB RAM, Ubuntu 24.04, Dell Ultrawide`;
+      navigator.clipboard?.writeText(text).then(()=>alert('Setup copiado!'));
+    }
+    function copyLink(url){navigator.clipboard?.writeText(url).then(()=>alert('Link copiado!'))}
+
+    function share(target){
+      const url = encodeURIComponent(location.href);
+      const text = encodeURIComponent('Confira meu setup e projetos!');
+      if(target==='twitter') window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`,'_blank');
+      if(target==='linkedin') window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${text}`,'_blank');
+    }
+
+    // comportamento: fechar modal ao clicar fora
+    document.getElementById('modal').addEventListener('click', e=>{ if(e.target.id==='modal') closeModal() });
+  </script>
+</body>
+</html>
+
